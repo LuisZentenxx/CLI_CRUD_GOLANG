@@ -1,6 +1,7 @@
 package task
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -32,7 +33,7 @@ func ListTasks(tasks []Task) {
 
 func AddTask(tasks []Task, name string) []Task {
 	newTask := Task{
-		ID:       10,
+		ID:       GetNextId(tasks),
 		Name:     name,
 		Complete: false,
 	}
@@ -45,7 +46,7 @@ func SaveTask(file *os.File, tasks []Task) {
 		panic(err)
 	}
 
-	_, err := file.Seek(0, 0)
+	_, err = file.Seek(0, 0)
 	if err != nil {
 		panic(err)
 	}
@@ -55,4 +56,31 @@ func SaveTask(file *os.File, tasks []Task) {
 		panic(err)
 	}
 
+	writer := bufio.NewWriter(file)
+	_, err = writer.Write(bytes)
+
+	if err != nil {
+		panic(err)
+	}
+
+	err = writer.Flush()
+	if err != nil {
+		panic(err)
+	}
+}
+
+func GetNextId(tasks []Task) int {
+	if len(tasks) == 0 {
+		return 1
+	}
+	return tasks[len(tasks)-1].ID + 1
+}
+
+func DeleteTask(tasks []Task, id int) []Task {
+	for i, task := range tasks {
+		if task.ID == id {
+			return append(tasks[:i], tasks[i+1:]...)
+		}
+	}
+	return tasks
 }

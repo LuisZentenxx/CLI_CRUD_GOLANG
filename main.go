@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strconv"
 	"strings"
 
 	task "github.com/LuisZentenxx/go-cli-crud/tasks"
@@ -60,14 +61,29 @@ func main() {
 	switch os.Args[1] {
 	case "list":
 		task.ListTasks(tasks)
+
 	case "add":
 		reader := bufio.NewReader(os.Stdin)
-		fmt.Println("Which is yout task")
+		fmt.Println("Which is yout task?")
 		name, _ := reader.ReadString('\n')
 		name = strings.TrimSpace(name)
 
 		tasks = task.AddTask(tasks, name)
-		fmt.Println(tasks)
+		task.SaveTask(file, tasks)
+
+	case "delete":
+		if len(os.Args) < 3 {
+			fmt.Println("May get one ID to delete")
+			return
+		}
+		id, err := strconv.Atoi(os.Args[2])
+		if err != nil {
+			fmt.Println("ID may be a number")
+			return
+		}
+
+		tasks = task.DeleteTask(tasks, id)
+		task.SaveTask(file, tasks)
 	}
 }
 
