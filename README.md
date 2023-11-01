@@ -40,22 +40,36 @@ La aplicación está diseñada para ser intuitiva y fácil de usar, permitiendo 
 La aplicación admite los siguientes comandos:
 
 - **add**: Agrega una nueva tarea.
+   ```bash
+   go run main.go add
 - **list**: Muestra todas las tareas.
-- **update**: Actualiza una tarea existente.
-- **delete**: Elimina una tarea.
-- **help**: Muestra la lista de comandos disponibles y su uso.
-
+- ```bash
+   go run main.go list
+- **complete**: Actualiza el estado de una tarea existente.
+  ```bash
+   go run main.go complete true or false
+- **delete**: Elimina una tarea indicando el número de esta.
+  ```bash
+   go run main.go delete 1
 Ejemplo:
 ```bash
-    # Agregar una tarea
-./cli-crud-go add "Completar el informe"
+# Agregar una tarea
+   > go run main.go add
+   My task is to create a new task
 
 # Mostrar todas las tareas
-./cli-crud-go list
+   > go run main.go list
 
-# Actualizar una tarea
-./cli-crud-go update 1 "Completar el informe para el cliente"
+   [] 1 Review the Go code
+   [✓] 2 Create a folder
+   [✓] 3 Delete the task 1
+
+# Actualizar estado de una tarea
+   > go run main.go complete true or false
 
 # Eliminar una tarea
-./cli-crud-go delete 1
+   > go run main.go delete 1
+
+   [✓] 2 Create a folder
+   [✓] 3 Delete the task 1
 
