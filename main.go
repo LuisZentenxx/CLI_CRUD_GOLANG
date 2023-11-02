@@ -73,6 +73,27 @@ func main() {
 
 	case "delete":
 		if len(os.Args) < 3 {
+			fmt.Println("Must provide an ID to delete or use 'all' to delete all tasks")
+			return
+		}
+
+		if os.Args[2] == "all" {
+			// Eliminar todas las tareas
+			tasks = task.DeleteAllTasks(tasks)
+
+		} else {
+			id, err := strconv.Atoi(os.Args[2])
+			if err != nil {
+				fmt.Println("ID may be a number")
+				return
+			}
+
+			tasks = task.DeleteTask(tasks, id)
+		}
+		task.SaveTask(file, tasks)
+
+	case "complete":
+		if len(os.Args) < 3 {
 			fmt.Println("May get one ID to delete")
 			return
 		}
@@ -81,9 +102,9 @@ func main() {
 			fmt.Println("ID may be a number")
 			return
 		}
-
-		tasks = task.DeleteTask(tasks, id)
+		tasks = task.CompleteTask(tasks, id)
 		task.SaveTask(file, tasks)
+
 	}
 }
 

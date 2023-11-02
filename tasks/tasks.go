@@ -21,9 +21,9 @@ func ListTasks(tasks []Task) {
 
 	for _, task := range tasks {
 
-		status := "✓"
+		status := " "
 		if task.Complete {
-			status = ""
+			status = "✓"
 		}
 
 		fmt.Printf("[%s] %d %s\n", status, task.ID, task.Name)
@@ -80,6 +80,20 @@ func DeleteTask(tasks []Task, id int) []Task {
 	for i, task := range tasks {
 		if task.ID == id {
 			return append(tasks[:i], tasks[i+1:]...)
+		}
+	}
+	return tasks
+}
+
+func DeleteAllTasks(tasks []Task) []Task {
+	return []Task{}
+}
+
+func CompleteTask(tasks []Task, id int) []Task {
+	for i, task := range tasks {
+		if task.ID == id {
+			tasks[i].Complete = true
+			break
 		}
 	}
 	return tasks

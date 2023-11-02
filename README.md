@@ -45,31 +45,44 @@ La aplicación admite los siguientes comandos:
 - **list**: Muestra todas las tareas.
 - ```bash
    go run main.go list
-- **complete**: Actualiza el estado de una tarea existente.
+- **complete**: Actualiza el estado de una tarea existente usando su respectivo ID.
   ```bash
-   go run main.go complete true or false
-- **delete**: Elimina una tarea indicando el número de esta.
+   go run main.go complete <ID>
+- **delete**: Elimina una tarea indicando su respectivo ID o usando "all" para eliminar todas las tareas.
   ```bash
-   go run main.go delete 1
+   go run main.go delete <ID or all>
 Ejemplo:
 ```bash
 # Agregar una tarea
    > go run main.go add
-   My task is to create a new task
+      -> My new task
 
 # Mostrar todas las tareas
    > go run main.go list
 
-   [] 1 Review the Go code
-   [✓] 2 Create a folder
-   [✓] 3 Delete the task 1
+   Resultado:
+      [ ] 1 Review the Go code
+      [✓] 2 Create a folder
+      [ ] 3 My new task
 
 # Actualizar estado de una tarea
-   > go run main.go complete true or false
+   > go run main.go complete 3
+
+   Resultado:
+      [ ] 1 Review the Go code
+      [✓] 2 Create a folder
+      [✓] 3 My new task
 
 # Eliminar una tarea
    > go run main.go delete 1
 
-   [✓] 2 Create a folder
-   [✓] 3 Delete the task 1
+   Resultado:
+      [✓] 2 Create a folder
+      [✓] 3 My new task
+
+# Eliminar todas las tareas
+   > go run main.go delete all
+
+   Resultado:
+      [ ]
 
