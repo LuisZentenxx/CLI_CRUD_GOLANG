@@ -2,24 +2,22 @@
 ![](https://www.softwebsolutions.com/wp-content/uploads/2020/10/golang-Programing.jpg)
 
 ## Descripción
-CLI CRUD GOLANG es una aplicación de línea de comandos escrita en Golang que permite a los usuarios gestionar una lista de tareas directamente desde la terminal. Ofrece funcionalidades básicas de creación, lectura, actualización y eliminación (CRUD) de tareas, lo que facilita la organización y gestión de tareas diarias o pendientes.
-
-La aplicación está diseñada para ser intuitiva y fácil de usar, permitiendo a los usuarios interactuar con su lista de tareas a través de simples comandos de terminal.
+CLI CRUD GOLANG es una aplicación de línea de comandos escrita en Golang que permite a los usuarios gestionar una lista de tareas directamente desde la terminal. Ofrece funcionalidades básicas de creación, lectura, actualización y eliminación (CRUD) de tareas.
 
 ## Características
 
 - **CRUD**: Operaciones básicas de Crear, Leer, Actualizar y Eliminar tareas.
 - **Interfaz de línea de comandos**: Fácil interacción a través de comandos de terminal.
-- **Instalable localmente**: Posibilidad de instalar la aplicación en tu propio computador.
+- **Instalable localmente**: Posibilidad de instalar la aplicación en tu propio equipo.
 - **Compatibilidad multiplataforma**: Compatible con Windows, macOS y Linux.
 - **Compartición del ejecutable final**: Capacidad para compartir el ejecutable final con otros usuarios.
 
 ## Requisitos
 - Golang instalado en el sistema
-- Conexión a internet para la instalación de dependencias, si es necesario.
-
+(https://go.dev/dl/)
+- Terminal (cmd, powershell, bash, etc.)
 ## Instalación
-1. Clona este repositorio en tu computador:
+1. En una terminal, clona este repositorio:
    ```bash
    git clone https://github.com/LuisZentenxx/CLI_CRUD_GOLANG
 2. Navega hacia el directorio del proyecto:
