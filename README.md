@@ -22,19 +22,15 @@ La aplicación está diseñada para ser intuitiva y fácil de usar, permitiendo 
 1. Clona este repositorio en tu computador:
    ```bash
    git clone https://github.com/LuisZentenxx/CLI_CRUD_GOLANG
-
 2. Navega hacia el directorio del proyecto:
     ```bash
-    cd cli-crud-go
-
+    cd CLI_CRUD_GOLANG
 3. Compila el código para generar el ejecutable:
    ```bash
-   go build -o cli-crud-go
-
+   go build .
 4. Ejecuta la aplicación:
    ```bash
-   ./cli-crud-go
-
+   ./go-cli-crud.exe
 ## Uso
 
 La aplicación admite los siguientes comandos:
